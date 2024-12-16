@@ -48,7 +48,7 @@ Tentu! Berikut adalah panduan lengkap untuk **instalasi Ruby** di empat platform
    ```bash
    sudo apt update && sudo apt upgrade
    sudo apt install ruby-full
-   ``2
+   ```
 
 2. **Verifikasi Instalasi:**
    Setelah instalasi, periksa versi Ruby dengan perintah:
