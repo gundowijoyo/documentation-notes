@@ -1,7 +1,7 @@
- membuat looping yang menghasilkan urutan alfabet seperti:  
-`a, b, c, ..., z, aa, ab, ac, ...` dan seterusnya. Ini adalah konsep dari sistem penghitungan dalam basis 26, di mana setelah 'z' akan dilanjutkan dengan 'aa', 'ab', dan seterusnya.
+# Simple Alfabet
+ Anda ingin membuat urutan alfabet yang dimulai dari `a` hingga `z`, kemudian berlanjut ke `aa`, `ab`, `ac`, dan seterusnya, seperti sistem penghitungan berbasis huruf. Setelah `z`, urutannya melanjutkan ke kombinasi dua huruf seperti `aa`, `ab`, `ac`, dan seterusnya, lalu `ba`, `bb`, dan seterusnya.
 
-Berikut adalah cara untuk menghasilkan urutan seperti itu menggunakan PHP:
+Berikut adalah contoh kode PHP untuk menghasilkan urutan seperti itu:
 
 ### Kode PHP:
 
@@ -12,20 +12,33 @@ $limit = 100;  // Misalnya 100 urutan pertama
 
 // Looping untuk menghasilkan urutan alfabet
 for ($i = 0; $i < $limit; $i++) {
-    // Menghasilkan string alfabet sesuai dengan urutan
-    $result = base_convert($i, 10, 26);  // Konversi angka ke sistem basis 26
-    $result = str_replace(range(0, 9), range('a', 'j'), $result);  // Mengganti angka menjadi huruf
-    echo $result . "<br>";  // Menampilkan urutan
+    echo numToAlpha($i) . "<br>";
+}
+
+// Fungsi untuk mengubah angka menjadi urutan alfabet (a-z, aa, ab, ac, ... )
+function numToAlpha($num) {
+    $letters = '';
+    
+    while ($num >= 0) {
+        $letters = chr($num % 26 + 97) . $letters;  // Menambahkan huruf ke kiri
+        $num = floor($num / 26) - 1;  // Mengurangi angka dan membaginya dengan 26
+        if ($num < 0) break;
+    }
+    
+    return $letters;
 }
 ?>
 ```
 
 ### Penjelasan:
-1. **`base_convert($i, 10, 26)`**: Fungsi ini mengkonversi angka desimal (basis 10) ke dalam basis 26 (alfabet). Ini akan menghasilkan angka dalam bentuk huruf, misalnya 0 menjadi 'a', 1 menjadi 'b', dan seterusnya.
-2. **`str_replace(range(0, 9), range('a', 'j'), $result)`**: Fungsi ini mengganti angka dalam hasil konversi ke huruf sesuai urutan alfabet (dari 'a' hingga 'j').
+1. **`numToAlpha($num)`**: Fungsi ini mengonversi angka ke dalam urutan alfabet yang Anda inginkan.
+    - Menggunakan operasi modulus (`%`) untuk mengambil sisa pembagian angka dengan 26, dan mengubahnya menjadi huruf sesuai urutan `a-z`.
+    - Setelah `z`, proses akan melanjutkan ke kombinasi dua huruf (`aa`, `ab`, `ac`, dll).
+    - Setelah mencapai `z`, angka berikutnya menghasilkan `aa`, `ab`, dan seterusnya.
+2. **`chr($num % 26 + 97)`**: Fungsi `chr()` mengonversi angka menjadi karakter ASCII. `97` adalah kode ASCII untuk huruf 'a'. Modulus digunakan untuk memastikan urutannya tetap dalam rentang `a-z`.
 
 ### Hasil:
-Jika Anda ingin 100 urutan pertama, outputnya akan seperti ini:
+Jika Anda menggunakan `100` sebagai jumlah urutan, outputnya akan seperti ini:
 
 ```
 a
@@ -37,6 +50,11 @@ aa
 ab
 ac
 ...
+az
+ba
+bb
+bc
+...
 ```
 
-Ini adalah cara yang efektif untuk menghasilkan urutan alfabet yang terus berkembang setelah mencapai 'z'.
+Urutan akan terus meningkat sesuai dengan format yang Anda inginkan, yaitu dari `a` hingga `z`, lalu `aa`, `ab`, `ac`, dan seterusnya, hingga batas yang Anda tentukan di variabel `$limit`.
