@@ -1,7 +1,7 @@
 
 ---
 
-```markdown
+
 # Dokumentasi Koneksi Domain dan Hosting di Vercel
 
 Dokumentasi ini menjelaskan langkah-langkah untuk menghubungkan domain (misalnya Pendia) dengan hosting di Vercel, mulai dari pengelolaan nameserver hingga konfigurasi DNS.
@@ -76,6 +76,3 @@ Dokumentasi ini menjelaskan langkah-langkah untuk menghubungkan domain (misalnya
 
 Dengan langkah-langkah di atas, Anda telah berhasil menghubungkan domain Anda dengan hosting di Vercel. Jika ada masalah atau kesulitan, Anda dapat memeriksa dokumentasi Vercel atau menghubungi support dari registrar domain.
 
-```
-
----
