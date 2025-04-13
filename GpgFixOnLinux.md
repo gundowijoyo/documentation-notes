@@ -7,7 +7,7 @@ Dokumentasi ini menjelaskan langkah-langkah debug dan solusi jika sistem Kali ka
 ## Gejala Error
 
 Saat menjalankan:
-```bash
+
 sudo apt update
 ```
 
