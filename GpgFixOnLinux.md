@@ -7,12 +7,12 @@ Dokumentasi ini menjelaskan langkah-langkah debug dan solusi jika sistem Kali ka
 ## Gejala Error
 
 Saat menjalankan:
-```
+```bash
 sudo apt update
 ```
 
 Muncul error:
-```
+```bash
 EXPKEYSIG ED444FF07D8D0BF6 Kali Linux Repository <devel@kali.org>
 ```
 
