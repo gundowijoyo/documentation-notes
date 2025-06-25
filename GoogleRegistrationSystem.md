@@ -141,7 +141,3 @@ Kamu bisa pakai **Google Identity Services** untuk ambil `Google ID token` dan u
 * Gunakan Google Identity Services (GIS) untuk ambil token.
 * Pakai `tokeninfo` endpoint Google untuk ambil profil user dari token.
 * Kirim `provider_id`, `email`, `username`, dan lainnya ke API-mu.
-
----
-
-Kalau kamu pakai **React** atau framework lain, tinggal integrasikan logika yang sama, tapi dengan hook atau component masing-masing. Mau aku bantu versi React juga?
